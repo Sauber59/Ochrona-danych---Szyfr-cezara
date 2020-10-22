@@ -24,11 +24,11 @@ namespace Cezar
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void encrypt_BTN_Click(object sender, EventArgs e)
         {
-            textBox2.Clear();
+            output_TB.Clear();
 
-            char[] chars = textBox1.Text.ToArray();
+            char[] chars = input_TB.Text.ToArray();
             string encodeText = "";
 
             for (int i = 0; i < chars.Length; i++)
@@ -37,24 +37,24 @@ namespace Cezar
                 {
                     if (char.Equals(chars[i], alphabet[j]))
                     {
-                        if (j + (int)numericUpDown1.Value >= alphabet.Length)
+                        if (j + (int)key_NUM.Value >= alphabet.Length)
                             j = j - alphabet.Length;
 
-                        encodeText = encodeText + alphabet[j + (int)numericUpDown1.Value].ToString();
+                        encodeText = encodeText + alphabet[j + (int)key_NUM.Value].ToString();
                         break;
                     }
                 }
             }
 
-            textBox2.Paste(encodeText);
+            output_TB.Paste(encodeText);
         }
 
 
-        private void button2_Click(object sender, EventArgs e)
+        private void decrypt_BTN_Click(object sender, EventArgs e)
         {
-            textBox2.Clear();
+            output_TB.Clear();
 
-            char[] chars = textBox1.Text.ToArray();
+            char[] chars = input_TB.Text.ToArray();
             string dencodeText = "";
 
             for (int i = 0; i < chars.Length; i++)
@@ -63,26 +63,26 @@ namespace Cezar
                 {
                     if (char.Equals(chars[i], alphabet[j]))
                     {
-                        if (j - (int)numericUpDown1.Value < 0)
+                        if (j - (int)key_NUM.Value < 0)
                         j = j + alphabet.Length;
 
-                        dencodeText = dencodeText + alphabet[j - (int)numericUpDown1.Value].ToString();
+                        dencodeText = dencodeText + alphabet[j - (int)key_NUM.Value].ToString();
                         break;
                     }
                 }
             }
 
-            textBox2.Paste(dencodeText);
+            output_TB.Paste(dencodeText);
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void key_NUM_ValueChanged(object sender, EventArgs e)
         {
-            textBox2.Clear();
+            output_TB.Clear();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void input_TB_TextChanged(object sender, EventArgs e)
         {
-            textBox2.Clear();
+            output_TB.Clear();
         }
     }
 }
