@@ -84,5 +84,19 @@ namespace Cezar
         {
             output_TB.Clear();
         }
+
+        private static void checkEnterChar(KeyPressEventArgs e)
+        {
+            if (!char.IsLetterOrDigit(e.KeyChar)) 
+            {
+                MessageBox.Show("Tylko litery oraz cyfry");
+                e.Handled = true;
+            }
+        }
+
+        private void input_TB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkEnterChar(e);
+        }
     }
 }

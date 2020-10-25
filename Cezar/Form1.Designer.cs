@@ -65,6 +65,7 @@
             this.input_TB.Size = new System.Drawing.Size(434, 117);
             this.input_TB.TabIndex = 2;
             this.input_TB.TextChanged += new System.EventHandler(this.input_TB_TextChanged);
+            this.input_TB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.input_TB_KeyPress);
             // 
             // output_TB
             // 
